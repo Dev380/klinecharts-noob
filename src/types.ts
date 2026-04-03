@@ -36,7 +36,6 @@ export interface Period {
 export type DatafeedSubscribeCallback = (data: KLineData) => void
 
 export interface Datafeed {
-  searchSymbols (search?: string): Promise<SymbolInfo[]>
   getHistoryKLineData (symbol: SymbolInfo, period: Period, from: number, to: number): Promise<KLineData[]>
   subscribe (symbol: SymbolInfo, period: Period, callback: DatafeedSubscribeCallback): void
   unsubscribe (symbol: SymbolInfo, period: Period): void
@@ -52,7 +51,6 @@ export interface ChartProOptions {
   symbol: SymbolInfo
   period: Period
   periods?: Period[]
-  timezone?: string
   mainIndicators?: string[]
   subIndicators?: string[]
   datafeed: Datafeed
@@ -65,8 +63,6 @@ export interface ChartPro {
   getStyles(): Styles
   setLocale(locale: string): void
   getLocale(): string
-  setTimezone(timezone: string): void
-  getTimezone(): string
   setSymbol(symbol: SymbolInfo): void
   getSymbol(): SymbolInfo
   setPeriod(period: Period): void

@@ -83,17 +83,12 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
   const [mainIndicators, setMainIndicators] = createSignal([...(props.mainIndicators!)])
   const [subIndicators, setSubIndicators] = createSignal({})
 
-  const [timezoneModalVisible, setTimezoneModalVisible] = createSignal(false)
-  const [timezone, setTimezone] = createSignal<SelectDataSourceItem>({ key: props.timezone, text: translateTimezone(props.timezone, props.locale) })
-
   const [settingModalVisible, setSettingModalVisible] = createSignal(false)
   const [widgetDefaultStyles, setWidgetDefaultStyles] = createSignal<Styles>()
 
   const [screenshotUrl, setScreenshotUrl] = createSignal('')
 
   const [drawingBarVisible, setDrawingBarVisible] = createSignal(props.drawingBarVisible)
-
-  const [symbolSearchModalVisible, setSymbolSearchModalVisible] = createSignal(false)
 
   const [loadingVisible, setLoadingVisible] = createSignal(false)
 
@@ -108,8 +103,6 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
     getStyles: () => widget!.getStyles(),
     setLocale,
     getLocale: () => locale(),
-    setTimezone: (timezone: string) => { setTimezone({ key: timezone, text: translateTimezone(props.timezone, locale()) }) },
-    getTimezone: () => timezone().key,
     setSymbol,
     getSymbol: () => symbol(),
     setPeriod,
@@ -428,10 +421,6 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
   })
 
   createEffect(() => {
-    widget?.setTimezone(timezone().key)
-  })
-
-  createEffect(() => {
     if (styles()) {
       widget?.setStyles(styles())
       setWidgetDefaultStyles(lodashClone(widget!.getStyles()))
@@ -441,13 +430,6 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
   return (
     <>
       <i class="icon-close klinecharts-pro-load-icon"/>
-      <Show when={symbolSearchModalVisible()}>
-        <SymbolSearchModal
-          locale={props.locale}
-          datafeed={props.datafeed}
-          onSymbolSelected={symbol => { setSymbol(symbol) }}
-          onClose={() => { setSymbolSearchModalVisible(false) }}/>
-      </Show>
       <Show when={indicatorModalVisible()}>
         <IndicatorModal
           locale={props.locale}
@@ -482,14 +464,6 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
             }
             setSubIndicators(newSubIndicators)
           }}/>
-      </Show>
-      <Show when={timezoneModalVisible()}>
-        <TimezoneModal
-          locale={props.locale}
-          timezone={timezone()}
-          onClose={() => { setTimezoneModalVisible(false) }}
-          onConfirm={setTimezone}
-        />
       </Show>
       <Show when={settingModalVisible()}>
         <SettingModal
@@ -539,10 +513,8 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
             widget?.resize()
           } catch (e) {}    
         }}
-        onSymbolClick={() => { setSymbolSearchModalVisible(!symbolSearchModalVisible()) }}
         onPeriodChange={setPeriod}
         onIndicatorClick={() => { setIndicatorModalVisible((visible => !visible)) }}
-        onTimezoneClick={() => { setTimezoneModalVisible((visible => !visible)) }}
         onSettingClick={() => { setSettingModalVisible((visible => !visible)) }}
         onScreenshotClick={() => {
           if (widget) {

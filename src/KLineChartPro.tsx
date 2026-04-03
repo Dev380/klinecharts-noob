@@ -66,7 +66,6 @@ export default class KLineChartPro implements ChartPro {
               { multiplier: 1, timespan: 'year', text: 'Y' }
             ]
           }
-          timezone={options.timezone ?? 'Asia/Shanghai'}
           mainIndicators={options.mainIndicators ?? ['MA']}
           subIndicators={options.subIndicators ?? ['VOL']}
           datafeed={options.datafeed}/>
@@ -103,14 +102,6 @@ export default class KLineChartPro implements ChartPro {
 
   getLocale (): string {
     return this._chartApi!.getLocale()
-  }
-
-  setTimezone (timezone: string): void {
-    this._chartApi!.setTimezone(timezone)
-  }
-
-  getTimezone (): string {
-    return this._chartApi!.getTimezone()
   }
 
   setSymbol (symbol: SymbolInfo): void {
