@@ -19,17 +19,17 @@ import {
   TooltipIconPosition, ActionType, PaneOptions, Indicator, DomPosition, FormatDateType
 } from 'klinecharts'
 
+import * as utils2 from './utils2'
+
 import lodashSet from 'lodash/set'
 import lodashClone from 'lodash/cloneDeep'
 
 import { SelectDataSourceItem, Loading } from './component'
 
 import {
-  PeriodBar, DrawingBar, IndicatorModal, TimezoneModal, SettingModal,
-  ScreenshotModal, IndicatorSettingModal, SymbolSearchModal
+  PeriodBar, DrawingBar, IndicatorModal, SettingModal,
+  ScreenshotModal, IndicatorSettingModal
 } from './widget'
-
-import { translateTimezone } from './widget/timezone-modal/data'
 
 import { SymbolInfo, Period, ChartProOptions, ChartPro } from './types'
 
@@ -169,37 +169,43 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
     window.addEventListener('resize', documentResize)
     widget = init(widgetRef!, {
       customApi: {
-        formatDate: (dateTimeFormat: Intl.DateTimeFormat, timestamp, format: string, type: FormatDateType) => {
-          const p = period()
+        formatDate: (inputDateTimeFormat: Intl.DateTimeFormat, timestamp, format: string, type: FormatDateType) => {
+		  const trueLocale = Intl.DateTimeFormat().resolvedOptions().locale
+		  const hourCycle = new Intl.DateTimeFormat("en", { hour: 'numeric'}).resolvedOptions().hourCycle
+		  const hour12 = new Intl.DateTimeFormat("en", { hour: 'numeric'}).resolvedOptions().hour12
+		  // @ts-ignore
+		  const dateTimeFormat = new Intl.DateTimeFormat(trueLocale, {...inputDateTimeFormat.resolvedOptions(), hour12, hourCycle})
+
+		  const p = period()
           switch (p.timespan) {
             case 'minute': {
               if (type === FormatDateType.XAxis) {
-                return utils.formatDate(dateTimeFormat, timestamp, 'HH:mm')
+                return utils2.formatDate(dateTimeFormat, timestamp, 'HH:mmAP')
               }
-              return utils.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD HH:mm')
+              return utils2.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD HH:mmAP')
             }
             case 'hour': {
               if (type === FormatDateType.XAxis) {
-                return utils.formatDate(dateTimeFormat, timestamp, 'MM-DD HH:mm')
+                return utils2.formatDate(dateTimeFormat, timestamp, 'MM-DD HH:mmAP')
               }
-              return utils.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD HH:mm')
+              return utils2.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD HH:mmAP')
             }
             case 'day':
-            case 'week': return utils.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD')
+            case 'week': return utils2.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD')
             case 'month': {
               if (type === FormatDateType.XAxis) {
-                return utils.formatDate(dateTimeFormat, timestamp, 'YYYY-MM')
+                return utils2.formatDate(dateTimeFormat, timestamp, 'YYYY-MM')
               }
-              return utils.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD')
+              return utils2.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD')
             }
             case 'year': {
               if (type === FormatDateType.XAxis) {
-                return utils.formatDate(dateTimeFormat, timestamp, 'YYYY')
+                return utils2.formatDate(dateTimeFormat, timestamp, 'YYYY')
               }
-              return utils.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD')
+              return utils2.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD')
             }
           }
-          return utils.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD HH:mm')
+          return utils2.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD HH:mmAP')
         }
       }
     })
