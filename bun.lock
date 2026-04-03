@@ -227,7 +227,7 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
-    "@klinecharts/noob": ["@klinecharts/noob@github:Dev380/klinecharts-noob#42f20c0", { "dependencies": { "lodash": "^4.18.1", "solid-js": "^1.9.12" }, "peerDependencies": { "klinecharts": "^9.8.12" } }, "Dev380-klinecharts-noob-42f20c0", "sha512-OTn0hVAZSnWEtBRqTlY/+W55VmRyQQfJzHStZXHe5VYzOtxbzbW4PsTxhhimRLJGiqVPBhbVvBZ+2WNTvSOFCA=="],
+    "@klinecharts/noob": ["@klinecharts/noob@github:Dev380/klinecharts-noob#8b72d8b", { "dependencies": { "lodash": "^4.18.1", "solid-js": "^1.9.12" }, "peerDependencies": { "klinecharts": "^9.8.12" } }, "Dev380-klinecharts-noob-8b72d8b", "sha512-UhnZCi+pQ/SUmqYtrIkkO2B9XuccvuxXmhwIoh5K8b2C2Nn2qIMfNKPqes3Pwjv2HuqHI2ZRazf0tal7+b9UsQ=="],
 
     "@nodelib/fs.scandir": ["@nodelib/fs.scandir@2.1.5", "", { "dependencies": { "@nodelib/fs.stat": "2.0.5", "run-parallel": "^1.1.9" } }, "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="],
 
