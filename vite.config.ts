@@ -23,7 +23,7 @@ export default defineConfig({
     },
     lib: {
       entry: './src/index.ts',
-      name: 'klinechartspro',
+      name: 'klinechartsnoob',
       fileName: (format) => {
         if (format === 'es') {
           return 'klinecharts-pro.js'
