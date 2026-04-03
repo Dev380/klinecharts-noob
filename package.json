@@ -3,8 +3,8 @@
   "version": "0.1.1",
   "description": "Financial chart built out of the box based on KLineChart.",
   "type": "module",
-  "main": "./dist/klinecharts-pro.umd.js",
-  "module": "./dist/klinecharts-pro.js",
+  "main": "./dist/klinecharts-noob.umd.js",
+  "module": "./dist/klinecharts-noob.js",
   "types": "./dist/index.d.ts",
   "files": [
     "LICENSE",

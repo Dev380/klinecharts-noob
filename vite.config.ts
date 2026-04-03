@@ -13,7 +13,7 @@ export default defineConfig({
       output: {
         assetFileNames: (chunkInfo) => {
           if (chunkInfo.name === 'style.css') {
-            return 'klinecharts-pro.css'
+            return 'klinecharts-noob.css'
           }
         },
         globals: {
@@ -26,10 +26,10 @@ export default defineConfig({
       name: 'klinechartsnoob',
       fileName: (format) => {
         if (format === 'es') {
-          return 'klinecharts-pro.js'
+          return 'klinecharts-noob.js'
         }
         if (format === 'umd') {
-          return 'klinecharts-pro.umd.js'
+          return 'klinecharts-noob.umd.js'
         }
       }
     }
