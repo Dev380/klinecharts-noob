@@ -3306,7 +3306,7 @@ const Jc = (e) => {
     getSymbol: () => c(),
     setPeriod: A,
     getPeriod: () => L(),
-    resize: () => n == null ? void 0 : n.resize()
+    resize: () => n.resize()
   });
   const D1 = () => {
     n == null || n.resize();
