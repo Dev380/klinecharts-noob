@@ -909,7 +909,7 @@ function N5(e, t, n = {}) {
   return v0(() => E0(s)), () => {
     let l = e() || [], C = l.length, f, c;
     return l[T5], W(() => {
-      let L, A, O, E, T, b, $, M, z;
+      let L, A, O, E, T, b, $, M, Y;
       if (C === 0)
         o !== 0 && (E0(s), s = [], r = [], a = [], o = 0, i && (i = [])), n.fallback && (r = [B5], a[0] = K1((s1) => (s[0] = s1, n.fallback())), o = 1);
       else if (o === 0) {
@@ -922,9 +922,9 @@ function N5(e, t, n = {}) {
         for ($ = o - 1, M = C - 1; $ >= b && M >= b && r[$] === l[M]; $--, M--)
           O[M] = a[$], E[M] = s[$], i && (T[M] = i[$]);
         for (L = /* @__PURE__ */ new Map(), A = new Array(M + 1), c = M; c >= b; c--)
-          z = l[c], f = L.get(z), A[c] = f === void 0 ? -1 : f, L.set(z, c);
+          Y = l[c], f = L.get(Y), A[c] = f === void 0 ? -1 : f, L.set(Y, c);
         for (f = b; f <= $; f++)
-          z = r[f], c = L.get(z), c !== void 0 && c !== -1 ? (O[c] = a[f], E[c] = s[f], i && (T[c] = i[f]), c = A[c], L.set(z, c)) : s[f]();
+          Y = r[f], c = L.get(Y), c !== void 0 && c !== -1 ? (O[c] = a[f], E[c] = s[f], i && (T[c] = i[f]), c = A[c], L.set(Y, c)) : s[f]();
         for (c = b; c < C; c++)
           c in O ? (a[c] = O[c], s[c] = E[c], i && (i[c] = T[c], i[c](c))) : a[c] = K1(_);
         a = a.slice(0, o = C), r = l.slice(0);
@@ -1129,10 +1129,10 @@ function X(e, t = window.document) {
   const n = t[F0] || (t[F0] = /* @__PURE__ */ new Set());
   for (let r = 0, a = e.length; r < a; r++) {
     const s = e[r];
-    n.has(s) || (n.add(s), t.addEventListener(s, z5));
+    n.has(s) || (n.add(s), t.addEventListener(s, Y5));
   }
 }
-function Y(e, t, n) {
+function z(e, t, n) {
   n == null ? e.removeAttribute(t) : e.setAttribute(t, n);
 }
 function a1(e, t) {
@@ -1149,7 +1149,7 @@ function u1(e, t, n, r) {
 }
 function f1(e, t, n) {
   if (!t)
-    return n ? Y(e, "style") : t;
+    return n ? z(e, "style") : t;
   const r = e.style;
   if (typeof t == "string")
     return r.cssText = t;
@@ -1161,7 +1161,7 @@ function f1(e, t, n) {
     a = t[s], a !== n[s] && (r.setProperty(s, a), n[s] = a);
   return n;
 }
-function Y5(e, t, n) {
+function z5(e, t, n) {
   n != null ? e.style.setProperty(t, n) : e.style.removeProperty(t);
 }
 function L0(e, t, n) {
@@ -1169,10 +1169,10 @@ function L0(e, t, n) {
 }
 function d(e, t, n, r) {
   if (n !== void 0 && !r && (r = []), typeof t != "function")
-    return Y1(e, t, r, n);
-  F((a) => Y1(e, t(), a, n), r);
+    return z1(e, t, r, n);
+  F((a) => z1(e, t(), a, n), r);
 }
-function z5(e) {
+function Y5(e) {
   let t = e.target;
   const n = `$$${e.type}`, r = e.target, a = e.currentTarget, s = (l) => Object.defineProperty(e, "target", {
     configurable: !0,
@@ -1209,7 +1209,7 @@ function z5(e) {
     i();
   s(r);
 }
-function Y1(e, t, n, r, a) {
+function z1(e, t, n, r, a) {
   for (; typeof n == "function"; )
     n = n();
   if (t === n)
@@ -1231,12 +1231,12 @@ function Y1(e, t, n, r, a) {
         let i = t();
         for (; typeof i == "function"; )
           i = i();
-        n = Y1(e, i, n, r);
+        n = z1(e, i, n, r);
       }), () => n;
     if (Array.isArray(t)) {
       const i = [], l = n && Array.isArray(n);
       if (C0(i, t, n, a))
-        return F(() => n = Y1(e, i, n, r, !0)), () => n;
+        return F(() => n = z1(e, i, n, r, !0)), () => n;
       if (i.length === 0) {
         if (n = c1(e, n, r), o)
           return n;
@@ -1403,13 +1403,13 @@ function Z6(e, t) {
   return e == null ? void 0 : e[t];
 }
 var R6 = Z6, Q6 = j6, U6 = R6;
-function Y6(e, t) {
+function z6(e, t) {
   var n = U6(e, t);
   return Q6(n) ? n : void 0;
 }
-var i1 = Y6, z6 = i1, V6 = function() {
+var i1 = z6, Y6 = i1, V6 = function() {
   try {
-    var e = z6(Object, "defineProperty");
+    var e = Y6(Object, "defineProperty");
     return e({}, "", {}), e;
   } catch {
   }
@@ -1498,9 +1498,9 @@ function Ue(e, t) {
       return n;
   return -1;
 }
-var q1 = Ue, Ye = q1, ze = Array.prototype, Ve = ze.splice;
+var q1 = Ue, ze = q1, Ye = Array.prototype, Ve = Ye.splice;
 function He(e) {
-  var t = this.__data__, n = Ye(t, e);
+  var t = this.__data__, n = ze(t, e);
   if (n < 0)
     return !1;
   var r = t.length - 1;
@@ -1603,10 +1603,10 @@ function R2(e) {
   }), n = t.cache;
   return t;
 }
-var Q2 = R2, U2 = Q2, Y2 = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g, z2 = /\\(\\)?/g, V2 = U2(function(e) {
+var Q2 = R2, U2 = Q2, z2 = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g, Y2 = /\\(\\)?/g, V2 = U2(function(e) {
   var t = [];
-  return e.charCodeAt(0) === 46 && t.push(""), e.replace(Y2, function(n, r, a, s) {
-    t.push(a ? s.replace(z2, "$1") : r || n);
+  return e.charCodeAt(0) === 46 && t.push(""), e.replace(z2, function(n, r, a, s) {
+    t.push(a ? s.replace(Y2, "$1") : r || n);
   }), t;
 }), H2 = V2;
 function G2(e, t) {
@@ -1614,7 +1614,7 @@ function G2(e, t) {
     a[n] = t(e[n], n, e);
   return a;
 }
-var W2 = G2, Y0 = W1, X2 = W2, q2 = p1, J2 = b0, e3 = 1 / 0, z0 = Y0 ? Y0.prototype : void 0, V0 = z0 ? z0.toString : void 0;
+var W2 = G2, z0 = W1, X2 = W2, q2 = p1, J2 = b0, e3 = 1 / 0, Y0 = z0 ? z0.prototype : void 0, V0 = Y0 ? Y0.toString : void 0;
 function N9(e) {
   if (typeof e == "string")
     return e;
@@ -1696,15 +1696,15 @@ function j3(e, t) {
   }
   return n.set(e, t), this.size = n.size, this;
 }
-var Z3 = j3, R3 = J1, Q3 = A3, U3 = I3, Y3 = D3, z3 = E3, V3 = Z3;
+var Z3 = j3, R3 = J1, Q3 = A3, U3 = I3, z3 = D3, Y3 = E3, V3 = Z3;
 function v1(e) {
   var t = this.__data__ = new R3(e);
   this.size = t.size;
 }
 v1.prototype.clear = Q3;
 v1.prototype.delete = U3;
-v1.prototype.get = Y3;
-v1.prototype.has = z3;
+v1.prototype.get = z3;
+v1.prototype.has = Y3;
 v1.prototype.set = V3;
 var H3 = v1;
 function G3(e, t) {
@@ -1736,17 +1736,17 @@ var s8 = i8, G0 = s8, o8 = g1, j9 = Object.prototype, l8 = j9.hasOwnProperty, c8
   return arguments;
 }()) ? G0 : function(e) {
   return o8(e) && l8.call(e, "callee") && !c8.call(e, "callee");
-}, C8 = u8, z1 = { exports: {} };
+}, C8 = u8, Y1 = { exports: {} };
 function f8() {
   return !1;
 }
 var y8 = f8;
-z1.exports;
+Y1.exports;
 (function(e, t) {
   var n = H, r = y8, a = t && !t.nodeType && t, s = a && !0 && e && !e.nodeType && e, o = s && s.exports === a, i = o ? n.Buffer : void 0, l = i ? i.isBuffer : void 0, C = l || r;
   e.exports = C;
-})(z1, z1.exports);
-var Z9 = z1.exports, p8 = 9007199254740991;
+})(Y1, Y1.exports);
+var Z9 = Y1.exports, p8 = 9007199254740991;
 function g8(e) {
   return typeof e == "number" && e > -1 && e % 1 == 0 && e <= p8;
 }
@@ -1757,12 +1757,12 @@ function Q8(e) {
   return d8(e) && h8(e.length) && !!S[m8(e)];
 }
 var U8 = Q8;
-function Y8(e) {
+function z8(e) {
   return function(t) {
     return e(t);
   };
 }
-var w0 = Y8, V1 = { exports: {} };
+var w0 = z8, V1 = { exports: {} };
 V1.exports;
 (function(e, t) {
   var n = T9, r = t && !t.nodeType && t, a = r && !0 && e && !e.nodeType && e, s = a && a.exports === r, o = s && n.process, i = function() {
@@ -1774,7 +1774,7 @@ V1.exports;
   }();
   e.exports = i;
 })(V1, V1.exports);
-var M0 = V1.exports, z8 = U8, V8 = w0, W0 = M0, X0 = W0 && W0.isTypedArray, H8 = X0 ? V8(X0) : z8, G8 = H8, W8 = t8, X8 = C8, q8 = p1, J8 = Z9, e7 = K9, t7 = G8, n7 = Object.prototype, r7 = n7.hasOwnProperty;
+var M0 = V1.exports, Y8 = U8, V8 = w0, W0 = M0, X0 = W0 && W0.isTypedArray, H8 = X0 ? V8(X0) : Y8, G8 = H8, W8 = t8, X8 = C8, q8 = p1, J8 = Z9, e7 = K9, t7 = G8, n7 = Object.prototype, r7 = n7.hasOwnProperty;
 function a7(e, t) {
   var n = q8(e), r = !n && X8(e), a = !n && !r && J8(e), s = !n && !r && !a && t7(e), o = n || r || a || s, i = o ? W8(e.length, String) : [], l = i.length;
   for (var C in e)
@@ -1809,7 +1809,7 @@ var m7 = g7, h7 = P9, d7 = R9;
 function v7(e) {
   return e != null && d7(e.length) && !h7(e);
 }
-var Y9 = v7, _7 = Q9, L7 = m7, $7 = Y9;
+var z9 = v7, _7 = Q9, L7 = m7, $7 = z9;
 function b7(e) {
   return $7(e) ? _7(e) : L7(e);
 }
@@ -1834,7 +1834,7 @@ function E7(e) {
     r == "constructor" && (t || !O7.call(e, r)) || n.push(r);
   return n;
 }
-var F7 = E7, B7 = Q9, N7 = F7, K7 = Y9;
+var F7 = E7, B7 = Q9, N7 = F7, K7 = z9;
 function j7(e) {
   return K7(e) ? B7(e, !0) : N7(e);
 }
@@ -1854,14 +1854,14 @@ H1.exports;
   }
   e.exports = l;
 })(H1, H1.exports);
-var Y7 = H1.exports;
-function z7(e, t) {
+var z7 = H1.exports;
+function Y7(e, t) {
   var n = -1, r = e.length;
   for (t || (t = Array(r)); ++n < r; )
     t[n] = e[n];
   return t;
 }
-var V7 = z7;
+var V7 = Y7;
 function H7(e, t) {
   for (var n = -1, r = e == null ? 0 : e.length, a = 0, s = []; ++n < r; ) {
     var o = e[n];
@@ -1873,7 +1873,7 @@ var G7 = H7;
 function W7() {
   return [];
 }
-var z9 = W7, X7 = G7, q7 = z9, J7 = Object.prototype, et = J7.propertyIsEnumerable, q0 = Object.getOwnPropertySymbols, tt = q0 ? function(e) {
+var Y9 = W7, X7 = G7, q7 = Y9, J7 = Object.prototype, et = J7.propertyIsEnumerable, q0 = Object.getOwnPropertySymbols, tt = q0 ? function(e) {
   return e == null ? [] : (e = Object(e), X7(q0(e), function(t) {
     return et.call(e, t);
   }));
@@ -1887,7 +1887,7 @@ function st(e, t) {
     e[a + n] = t[n];
   return e;
 }
-var V9 = st, ot = U9, lt = ot(Object.getPrototypeOf, Object), H9 = lt, ct = V9, ut = H9, Ct = I0, ft = z9, yt = Object.getOwnPropertySymbols, pt = yt ? function(e) {
+var V9 = st, ot = U9, lt = ot(Object.getPrototypeOf, Object), H9 = lt, ct = V9, ut = H9, Ct = I0, ft = Y9, yt = Object.getOwnPropertySymbols, pt = yt ? function(e) {
   for (var t = []; e; )
     ct(t, Ct(e)), e = ut(e);
   return t;
@@ -1908,7 +1908,7 @@ var wt = kt, Mt = W9, St = G9, At = T0;
 function Tt(e) {
   return Mt(e, At, St);
 }
-var It = Tt, Pt = i1, Dt = H, Ot = Pt(Dt, "DataView"), Et = Ot, Ft = i1, Bt = H, Nt = Ft(Bt, "Promise"), Kt = Nt, jt = i1, Zt = H, Rt = jt(Zt, "Set"), Qt = Rt, Ut = i1, Yt = H, zt = Ut(Yt, "WeakMap"), Vt = zt, y0 = Et, p0 = x0, g0 = Kt, m0 = Qt, h0 = Vt, X9 = T1, _1 = D9, J0 = "[object Map]", Ht = "[object Object]", e9 = "[object Promise]", t9 = "[object Set]", n9 = "[object WeakMap]", r9 = "[object DataView]", Gt = _1(y0), Wt = _1(p0), Xt = _1(g0), qt = _1(m0), Jt = _1(h0), r1 = X9;
+var It = Tt, Pt = i1, Dt = H, Ot = Pt(Dt, "DataView"), Et = Ot, Ft = i1, Bt = H, Nt = Ft(Bt, "Promise"), Kt = Nt, jt = i1, Zt = H, Rt = jt(Zt, "Set"), Qt = Rt, Ut = i1, zt = H, Yt = Ut(zt, "WeakMap"), Vt = Yt, y0 = Et, p0 = x0, g0 = Kt, m0 = Qt, h0 = Vt, X9 = T1, _1 = D9, J0 = "[object Map]", Ht = "[object Object]", e9 = "[object Promise]", t9 = "[object Set]", n9 = "[object WeakMap]", r9 = "[object DataView]", Gt = _1(y0), Wt = _1(p0), Xt = _1(g0), qt = _1(m0), Jt = _1(h0), r1 = X9;
 (y0 && r1(new y0(new ArrayBuffer(1))) != r9 || p0 && r1(new p0()) != J0 || g0 && r1(g0.resolve()) != e9 || m0 && r1(new m0()) != t9 || h0 && r1(new h0()) != n9) && (r1 = function(e) {
   var t = X9(e), n = t == Ht ? e.constructor : void 0, r = n ? _1(n) : "";
   if (r)
@@ -1989,11 +1989,11 @@ function Q4(e, t, n) {
       return $4(e);
   }
 }
-var U4 = Q4, Y4 = y1, l9 = Object.create, z4 = function() {
+var U4 = Q4, z4 = y1, l9 = Object.create, Y4 = function() {
   function e() {
   }
   return function(t) {
-    if (!Y4(t))
+    if (!z4(t))
       return {};
     if (l9)
       return l9(t);
@@ -2001,7 +2001,7 @@ var U4 = Q4, Y4 = y1, l9 = Object.create, z4 = function() {
     var n = new e();
     return e.prototype = void 0, n;
   };
-}(), V4 = z4, H4 = V4, G4 = H9, W4 = S0;
+}(), V4 = Y4, H4 = V4, G4 = H9, W4 = S0;
 function X4(e) {
   return typeof e.constructor == "function" && !W4(e) ? H4(G4(e)) : {};
 }
@@ -2013,9 +2013,9 @@ var rn = nn, an = rn, sn = w0, c9 = M0, u9 = c9 && c9.isMap, on = u9 ? sn(u9) : 
 function fn(e) {
   return un(e) && cn(e) == Cn;
 }
-var yn = fn, pn = yn, gn = w0, C9 = M0, f9 = C9 && C9.isSet, mn = f9 ? gn(f9) : pn, hn = mn, dn = H3, vn = W3, _n = $0, Ln = M7, $n = U7, bn = Y7, xn = V7, kn = it, wn = dt, Mn = wt, Sn = It, An = P0, Tn = r4, In = U4, Pn = q4, Dn = p1, On = Z9, En = ln, Fn = y1, Bn = hn, Nn = A0, Kn = T0, jn = 1, Zn = 2, Rn = 4, q9 = "[object Arguments]", Qn = "[object Array]", Un = "[object Boolean]", Yn = "[object Date]", zn = "[object Error]", J9 = "[object Function]", Vn = "[object GeneratorFunction]", Hn = "[object Map]", Gn = "[object Number]", e5 = "[object Object]", Wn = "[object RegExp]", Xn = "[object Set]", qn = "[object String]", Jn = "[object Symbol]", er = "[object WeakMap]", tr = "[object ArrayBuffer]", nr = "[object DataView]", rr = "[object Float32Array]", ar = "[object Float64Array]", ir = "[object Int8Array]", sr = "[object Int16Array]", or = "[object Int32Array]", lr = "[object Uint8Array]", cr = "[object Uint8ClampedArray]", ur = "[object Uint16Array]", Cr = "[object Uint32Array]", w = {};
-w[q9] = w[Qn] = w[tr] = w[nr] = w[Un] = w[Yn] = w[rr] = w[ar] = w[ir] = w[sr] = w[or] = w[Hn] = w[Gn] = w[e5] = w[Wn] = w[Xn] = w[qn] = w[Jn] = w[lr] = w[cr] = w[ur] = w[Cr] = !0;
-w[zn] = w[J9] = w[er] = !1;
+var yn = fn, pn = yn, gn = w0, C9 = M0, f9 = C9 && C9.isSet, mn = f9 ? gn(f9) : pn, hn = mn, dn = H3, vn = W3, _n = $0, Ln = M7, $n = U7, bn = z7, xn = V7, kn = it, wn = dt, Mn = wt, Sn = It, An = P0, Tn = r4, In = U4, Pn = q4, Dn = p1, On = Z9, En = ln, Fn = y1, Bn = hn, Nn = A0, Kn = T0, jn = 1, Zn = 2, Rn = 4, q9 = "[object Arguments]", Qn = "[object Array]", Un = "[object Boolean]", zn = "[object Date]", Yn = "[object Error]", J9 = "[object Function]", Vn = "[object GeneratorFunction]", Hn = "[object Map]", Gn = "[object Number]", e5 = "[object Object]", Wn = "[object RegExp]", Xn = "[object Set]", qn = "[object String]", Jn = "[object Symbol]", er = "[object WeakMap]", tr = "[object ArrayBuffer]", nr = "[object DataView]", rr = "[object Float32Array]", ar = "[object Float64Array]", ir = "[object Int8Array]", sr = "[object Int16Array]", or = "[object Int32Array]", lr = "[object Uint8Array]", cr = "[object Uint8ClampedArray]", ur = "[object Uint16Array]", Cr = "[object Uint32Array]", w = {};
+w[q9] = w[Qn] = w[tr] = w[nr] = w[Un] = w[zn] = w[rr] = w[ar] = w[ir] = w[sr] = w[or] = w[Hn] = w[Gn] = w[e5] = w[Wn] = w[Xn] = w[qn] = w[Jn] = w[lr] = w[cr] = w[ur] = w[Cr] = !0;
+w[Yn] = w[J9] = w[er] = !1;
 function j1(e, t, n, r, a, s) {
   var o, i = t & jn, l = t & Zn, C = t & Rn;
   if (n && (o = a ? n(e, r, a, s) : n(e)), o !== void 0)
@@ -2161,7 +2161,7 @@ const n0 = (e) => (() => {
         }
       })))), i;
     })();
-  })(), null), F((o) => Y5(n, "width", `${e.width ?? 400}px`)), t;
+  })(), null), F((o) => z5(n, "width", `${e.width ?? 400}px`)), t;
 })();
 X(["click"]);
 var Or = /* @__PURE__ */ y("<div tabindex=0><div class=selector-container><span class=value></span><i class=arrow>"), Er = /* @__PURE__ */ y("<div class=drop-down-container><ul>"), Fr = /* @__PURE__ */ y("<li>");
@@ -2243,7 +2243,7 @@ const Zr = (e) => {
       }
     }), null), F((i) => {
       var l = t.style, C = `klinecharts-pro-input ${t.class ?? ""}`, f = r(), c = t.placeholder ?? "";
-      return i.e = f1(s, l, i.e), C !== i.t && a1(s, i.t = C), f !== i.a && Y(s, "data-status", i.a = f), c !== i.o && Y(o, "placeholder", i.o = c), i;
+      return i.e = f1(s, l, i.e), C !== i.t && a1(s, i.t = C), f !== i.a && z(s, "data-status", i.a = f), c !== i.o && z(o, "placeholder", i.o = c), i;
     }, {
       e: void 0,
       t: void 0,
@@ -2267,10 +2267,10 @@ const Qr = (e) => (() => {
   }), t;
 })();
 X(["click"]);
-const Ur = "指标", Yr = "主图指标", zr = "副图指标", Vr = "设置", Hr = "时区", Gr = "截屏", Wr = "全屏", Xr = "退出全屏", qr = "保存", Jr = "确定", ea = "取消", ta = "MA(移动平均线)", na = "EMA(指数平滑移动平均线)", ra = "SMA", aa = "BOLL(布林线)", ia = "BBI(多空指数)", sa = "SAR(停损点指向指标)", oa = "VOL(成交量)", la = "MACD(指数平滑异同移动平均线)", ca = "KDJ(随机指标)", ua = "RSI(相对强弱指标)", Ca = "BIAS(乖离率)", fa = "BRAR(情绪指标)", ya = "CCI(顺势指标)", pa = "DMI(动向指标)", ga = "CR(能量指标)", ma = "PSY(心理线)", ha = "DMA(平行线差指标)", da = "TRIX(三重指数平滑平均线)", va = "OBV(能量潮指标)", _a = "VR(成交量变异率)", La = "WR(威廉指标)", $a = "MTM(动量指标)", ba = "EMV(简易波动指标)", xa = "ROC(变动率指标)", ka = "PVT(价量趋势指标)", wa = "AO(动量震荡指标)", Ma = "世界统一时间", Sa = "(UTC-10) 檀香山", Aa = "(UTC-8) 朱诺", Ta = "(UTC-7) 洛杉矶", Ia = "(UTC-5) 芝加哥", Pa = "(UTC-4) 多伦多", Da = "(UTC-3) 圣保罗", Oa = "(UTC+1) 伦敦", Ea = "(UTC+2) 柏林", Fa = "(UTC+3) 巴林", Ba = "(UTC+4) 迪拜", Na = "(UTC+5) 阿什哈巴德", Ka = "(UTC+6) 阿拉木图", ja = "(UTC+7) 曼谷", Za = "(UTC+8) 上海", Ra = "(UTC+9) 东京", Qa = "(UTC+10) 悉尼", Ua = "(UTC+12) 诺福克岛", Ya = "水平直线", za = "水平射线", Va = "水平线段", Ha = "垂直直线", Ga = "垂直射线", Wa = "垂直线段", Xa = "直线", qa = "射线", Ja = "线段", ei = "箭头", ti = "价格线", ni = "价格通道线", ri = "平行直线", ai = "斐波那契回调直线", ii = "斐波那契回调线段", si = "斐波那契圆环", oi = "斐波那契螺旋", li = "斐波那契速度阻力扇", ci = "斐波那契趋势扩展", ui = "江恩箱", Ci = "矩形", fi = "平行四边形", yi = "圆", pi = "三角形", gi = "三浪", mi = "五浪", hi = "八浪", di = "任意浪", vi = "ABCD形态", _i = "XABCD形态", Li = "弱磁模式", $i = "强磁模式", bi = "商品搜索", xi = "商品代码", ki = "参数1", wi = "参数2", Mi = "参数3", Si = "参数4", Ai = "参数5", Ti = "周期", Ii = "标准差", Pi = "蜡烛图类型", Di = "全实心", Oi = "全空心", Ei = "涨空心", Fi = "跌空心", Bi = "OHLC", Ni = "面积图", Ki = "最新价显示", ji = "最高价显示", Zi = "最低价显示", Ri = "指标最新值显示", Qi = "价格轴类型", Ui = "线性轴", Yi = "百分比轴", zi = "对数轴", Vi = "倒置坐标", Hi = "网格线显示", Gi = "恢复默认", Wi = {
+const Ur = "指标", zr = "主图指标", Yr = "副图指标", Vr = "设置", Hr = "时区", Gr = "截屏", Wr = "全屏", Xr = "退出全屏", qr = "保存", Jr = "确定", ea = "取消", ta = "MA(移动平均线)", na = "EMA(指数平滑移动平均线)", ra = "SMA", aa = "BOLL(布林线)", ia = "BBI(多空指数)", sa = "SAR(停损点指向指标)", oa = "VOL(成交量)", la = "MACD(指数平滑异同移动平均线)", ca = "KDJ(随机指标)", ua = "RSI(相对强弱指标)", Ca = "BIAS(乖离率)", fa = "BRAR(情绪指标)", ya = "CCI(顺势指标)", pa = "DMI(动向指标)", ga = "CR(能量指标)", ma = "PSY(心理线)", ha = "DMA(平行线差指标)", da = "TRIX(三重指数平滑平均线)", va = "OBV(能量潮指标)", _a = "VR(成交量变异率)", La = "WR(威廉指标)", $a = "MTM(动量指标)", ba = "EMV(简易波动指标)", xa = "ROC(变动率指标)", ka = "PVT(价量趋势指标)", wa = "AO(动量震荡指标)", Ma = "世界统一时间", Sa = "(UTC-10) 檀香山", Aa = "(UTC-8) 朱诺", Ta = "(UTC-7) 洛杉矶", Ia = "(UTC-5) 芝加哥", Pa = "(UTC-4) 多伦多", Da = "(UTC-3) 圣保罗", Oa = "(UTC+1) 伦敦", Ea = "(UTC+2) 柏林", Fa = "(UTC+3) 巴林", Ba = "(UTC+4) 迪拜", Na = "(UTC+5) 阿什哈巴德", Ka = "(UTC+6) 阿拉木图", ja = "(UTC+7) 曼谷", Za = "(UTC+8) 上海", Ra = "(UTC+9) 东京", Qa = "(UTC+10) 悉尼", Ua = "(UTC+12) 诺福克岛", za = "水平直线", Ya = "水平射线", Va = "水平线段", Ha = "垂直直线", Ga = "垂直射线", Wa = "垂直线段", Xa = "直线", qa = "射线", Ja = "线段", ei = "箭头", ti = "价格线", ni = "价格通道线", ri = "平行直线", ai = "斐波那契回调直线", ii = "斐波那契回调线段", si = "斐波那契圆环", oi = "斐波那契螺旋", li = "斐波那契速度阻力扇", ci = "斐波那契趋势扩展", ui = "江恩箱", Ci = "矩形", fi = "平行四边形", yi = "圆", pi = "三角形", gi = "三浪", mi = "五浪", hi = "八浪", di = "任意浪", vi = "ABCD形态", _i = "XABCD形态", Li = "弱磁模式", $i = "强磁模式", bi = "商品搜索", xi = "商品代码", ki = "参数1", wi = "参数2", Mi = "参数3", Si = "参数4", Ai = "参数5", Ti = "周期", Ii = "标准差", Pi = "蜡烛图类型", Di = "全实心", Oi = "全空心", Ei = "涨空心", Fi = "跌空心", Bi = "OHLC", Ni = "面积图", Ki = "最新价显示", ji = "最高价显示", Zi = "最低价显示", Ri = "指标最新值显示", Qi = "价格轴类型", Ui = "线性轴", zi = "百分比轴", Yi = "对数轴", Vi = "倒置坐标", Hi = "网格线显示", Gi = "恢复默认", Wi = {
   indicator: Ur,
-  main_indicator: Yr,
-  sub_indicator: zr,
+  main_indicator: zr,
+  sub_indicator: Yr,
   setting: Vr,
   timezone: Hr,
   screenshot: Gr,
@@ -2323,8 +2323,8 @@ const Ur = "指标", Yr = "主图指标", zr = "副图指标", Vr = "设置", Hr
   tokyo: Ra,
   sydney: Qa,
   norfolk: Ua,
-  horizontal_straight_line: Ya,
-  horizontal_ray_line: za,
+  horizontal_straight_line: za,
+  horizontal_ray_line: Ya,
   horizontal_segment: Va,
   vertical_straight_line: Ha,
   vertical_ray_line: Ga,
@@ -2377,12 +2377,12 @@ const Ur = "指标", Yr = "主图指标", zr = "副图指标", Vr = "设置", Hr
   indicator_last_value_show: Ri,
   price_axis_type: Qi,
   normal: Ui,
-  percentage: Yi,
-  log: zi,
+  percentage: zi,
+  log: Yi,
   reverse_coordinate: Vi,
   grid_show: Hi,
   restore_default: Gi
-}, Xi = "Indicator", qi = "Main Indicator", Ji = "Sub Indicator", es = "Setting", ts = "Timezone", ns = "Screenshot", rs = "Full Screen", as = "Exit", is = "Save", ss = "Confirm", os = "Cancel", ls = "MA(Moving Average)", cs = "EMA(Exponential Moving Average)", us = "SMA", Cs = "BOLL(Bolinger Bands)", fs = "BBI(Bull And Bearlndex)", ys = "SAR(Stop and Reverse)", ps = "VOL(Volume)", gs = "MACD(Moving Average Convergence / Divergence)", ms = "KDJ(KDJ Index)", hs = "RSI(Relative Strength Index)", ds = "BIAS(Bias Ratio)", vs = "BRAR(情绪指标)", _s = "CCI(Commodity Channel Index)", Ls = "DMI(Directional Movement Index)", $s = "CR(能量指标)", bs = "PSY(Psychological Line)", xs = "DMA(Different of Moving Average)", ks = "TRIX(Triple Exponentially Smoothed Moving Average)", ws = "OBV(On Balance Volume)", Ms = "VR(Volatility Volume Ratio)", Ss = "WR(Williams %R)", As = "MTM(Momentum Index)", Ts = "EMV(Ease of Movement Value)", Is = "ROC(Price Rate of Change)", Ps = "PVT(Price and Volume Trend)", Ds = "AO(Awesome Oscillator)", Os = "UTC", Es = "(UTC-10) Honolulu", Fs = "(UTC-8) Juneau", Bs = "(UTC-7) Los Angeles", Ns = "(UTC-5) Chicago", Ks = "(UTC-4) Toronto", js = "(UTC-3) Sao Paulo", Zs = "(UTC+1) London", Rs = "(UTC+2) Berlin", Qs = "(UTC+3) Bahrain", Us = "(UTC+4) Dubai", Ys = "(UTC+5) Ashkhabad", zs = "(UTC+6) Almaty", Vs = "(UTC+7) Bangkok", Hs = "(UTC+8) Shanghai", Gs = "(UTC+9) Tokyo", Ws = "(UTC+10) Sydney", Xs = "(UTC+12) Norfolk", qs = "Horizontal Line", Js = "Horizontal Ray", eo = "Horizontal Segment", to = "Vertical Line", no = "Vertical Ray", ro = "Vertical Segment", ao = "Trend Line", io = "Ray", so = "Segment", oo = "Arrow", lo = "Price Line", co = "Price Channel Line", uo = "Parallel Line", Co = "Fibonacci Line", fo = "Fibonacci Segment", yo = "Fibonacci Circle", po = "Fibonacci Spiral", go = "Fibonacci Sector", mo = "Fibonacci Extension", ho = "Gann Box", vo = "Rect", _o = "Parallelogram", Lo = "Circle", $o = "Triangle", bo = "Three Waves", xo = "Five Waves", ko = "Eight Waves", wo = "Any Waves", Mo = "ABCD Pattern", So = "XABCD Pattern", Ao = "Weak Magnet", To = "Strong Magnet", Io = "Symbol Search", Po = "Symbol Code", Do = "Parameter 1", Oo = "Parameter 2", Eo = "Parameter 3", Fo = "Parameter 4", Bo = "Parameter 5", No = "Period", Ko = "Standard Deviation", jo = "Candle Type", Zo = "Candle Solid", Ro = "Candle Stroke", Qo = "Candle Up Stroke", Uo = "Candle Down Stroke", Yo = "OHLC", zo = "Area", Vo = "Show Last Price", Ho = "Show Highest Price", Go = "Show Lowest Price", Wo = "Show indicator's last value", Xo = "Price Axis Type", qo = "Normal", Jo = "Percentage", el = "Log", tl = "Reverse Coordinate", nl = "Show Grids", rl = "Restore Defaults", al = {
+}, Xi = "Indicator", qi = "Main Indicator", Ji = "Sub Indicator", es = "Setting", ts = "Timezone", ns = "Screenshot", rs = "Full Screen", as = "Exit", is = "Save", ss = "Confirm", os = "Cancel", ls = "MA(Moving Average)", cs = "EMA(Exponential Moving Average)", us = "SMA", Cs = "BOLL(Bolinger Bands)", fs = "BBI(Bull And Bearlndex)", ys = "SAR(Stop and Reverse)", ps = "VOL(Volume)", gs = "MACD(Moving Average Convergence / Divergence)", ms = "KDJ(KDJ Index)", hs = "RSI(Relative Strength Index)", ds = "BIAS(Bias Ratio)", vs = "BRAR(情绪指标)", _s = "CCI(Commodity Channel Index)", Ls = "DMI(Directional Movement Index)", $s = "CR(能量指标)", bs = "PSY(Psychological Line)", xs = "DMA(Different of Moving Average)", ks = "TRIX(Triple Exponentially Smoothed Moving Average)", ws = "OBV(On Balance Volume)", Ms = "VR(Volatility Volume Ratio)", Ss = "WR(Williams %R)", As = "MTM(Momentum Index)", Ts = "EMV(Ease of Movement Value)", Is = "ROC(Price Rate of Change)", Ps = "PVT(Price and Volume Trend)", Ds = "AO(Awesome Oscillator)", Os = "UTC", Es = "(UTC-10) Honolulu", Fs = "(UTC-8) Juneau", Bs = "(UTC-7) Los Angeles", Ns = "(UTC-5) Chicago", Ks = "(UTC-4) Toronto", js = "(UTC-3) Sao Paulo", Zs = "(UTC+1) London", Rs = "(UTC+2) Berlin", Qs = "(UTC+3) Bahrain", Us = "(UTC+4) Dubai", zs = "(UTC+5) Ashkhabad", Ys = "(UTC+6) Almaty", Vs = "(UTC+7) Bangkok", Hs = "(UTC+8) Shanghai", Gs = "(UTC+9) Tokyo", Ws = "(UTC+10) Sydney", Xs = "(UTC+12) Norfolk", qs = "Horizontal Line", Js = "Horizontal Ray", eo = "Horizontal Segment", to = "Vertical Line", no = "Vertical Ray", ro = "Vertical Segment", ao = "Trend Line", io = "Ray", so = "Segment", oo = "Arrow", lo = "Price Line", co = "Price Channel Line", uo = "Parallel Line", Co = "Fibonacci Line", fo = "Fibonacci Segment", yo = "Fibonacci Circle", po = "Fibonacci Spiral", go = "Fibonacci Sector", mo = "Fibonacci Extension", ho = "Gann Box", vo = "Rect", _o = "Parallelogram", Lo = "Circle", $o = "Triangle", bo = "Three Waves", xo = "Five Waves", ko = "Eight Waves", wo = "Any Waves", Mo = "ABCD Pattern", So = "XABCD Pattern", Ao = "Weak Magnet", To = "Strong Magnet", Io = "Symbol Search", Po = "Symbol Code", Do = "Parameter 1", Oo = "Parameter 2", Eo = "Parameter 3", Fo = "Parameter 4", Bo = "Parameter 5", No = "Period", Ko = "Standard Deviation", jo = "Candle Type", Zo = "Candle Solid", Ro = "Candle Stroke", Qo = "Candle Up Stroke", Uo = "Candle Down Stroke", zo = "OHLC", Yo = "Area", Vo = "Show Last Price", Ho = "Show Highest Price", Go = "Show Lowest Price", Wo = "Show indicator's last value", Xo = "Price Axis Type", qo = "Normal", Jo = "Percentage", el = "Log", tl = "Reverse Coordinate", nl = "Show Grids", rl = "Restore Defaults", al = {
   indicator: Xi,
   main_indicator: qi,
   sub_indicator: Ji,
@@ -2431,8 +2431,8 @@ const Ur = "指标", Yr = "主图指标", zr = "副图指标", Vr = "设置", Hr
   berlin: Rs,
   bahrain: Qs,
   dubai: Us,
-  ashkhabad: Ys,
-  almaty: zs,
+  ashkhabad: zs,
+  almaty: Ys,
   bangkok: Vs,
   shanghai: Hs,
   tokyo: Gs,
@@ -2484,8 +2484,8 @@ const Ur = "指标", Yr = "主图指标", zr = "副图指标", Vr = "设置", Hr
   candle_stroke: Ro,
   candle_up_stroke: Qo,
   candle_down_stroke: Uo,
-  ohlc: Yo,
-  area: zo,
+  ohlc: zo,
+  area: Yo,
   last_price_show: Vo,
   high_price_show: Ho,
   low_price_show: Go,
@@ -2534,7 +2534,7 @@ const ul = (e) => {
           },
           get children() {
             var M = il();
-            return F(() => Y(M, "src", e.symbol.logo)), M;
+            return F(() => z(M, "src", e.symbol.logo)), M;
           }
         }), $), d($, () => e.symbol.shortName ?? e.symbol.name ?? e.symbol.ticker), b;
       }
@@ -2559,7 +2559,7 @@ const ul = (e) => {
         var $ = l0();
         return d($, () => g("full_screen", e.locale)), $;
       })()];
-    })()), F(() => Y(i, "class", e.spread ? "" : "rotate")), s;
+    })()), F(() => z(i, "class", e.spread ? "" : "rotate")), s;
   })();
 };
 X(["click"]);
@@ -2597,8 +2597,8 @@ var Zl = /* @__PURE__ */ y('<svg class=icon-overlay viewBox="0 0 22 22"><ellipse
 const Rl = () => Zl();
 var Ql = /* @__PURE__ */ y('<svg class=icon-overlay viewBox="0 0 22 22"><path d=M3,7.32468C5.90649,3.3893050000000002,11.49833,2.81306,14.6674,6.31944C14.9056,6.1554199999999994,15.192,6.05979,15.5,6.05979C15.845,6.05979,16.1628,6.17974,16.4162,6.381349999999999L18.4509,4.23827L19,4.816615L16.8945,7.03429C16.962600000000002,7.21075,17,7.40319,17,7.60463C17,8.45782,16.328400000000002,9.14947,15.5,9.14947C14.6716,9.14947,14,8.45782,14,7.60463C14,7.36402,14.0534,7.13625,14.1487,6.93322C11.32695,3.748365,6.25159,4.253956,3.612785,7.82695L3,7.32468ZM14.09,15.4717C15.7427,13.78985,16.244500000000002,11.524740000000001,15.5633,9.30134L15.5618,9.30134L16.3012,9.0502C17.072400000000002,11.56646,16.497700000000002,14.158,14.6282,16.0599C12.28737,18.442,8.62386,18.6988,6.41348,16.4501C4.5526,14.5572,4.52076,11.19671,6.36766,9.3177C7.89069,7.76754,10.07544,7.706189999999999,11.56741,9.22363C11.95453,9.61742,12.24817,10.08363,12.43369,10.57677L14.1451,8.77421L14.6942,9.35256L12.64982,11.50582C12.65827,11.59712,12.66295,11.68839,12.66378,11.77936C12.87398,12.04523,13,12.38451,13,12.7541C13,13.60729,12.32843,14.2989,11.5,14.2989C10.67157,14.2989,10,13.60729,10,12.7541C10,11.90091,10.67157,11.20926,11.5,11.20926C11.60387,11.20926,11.70528,11.220130000000001,11.8032,11.240829999999999L11.81763,11.22564C11.69858,10.71874,11.42858,10.21929,11.0284,9.81179C9.844000000000001,8.60765,8.136890000000001,8.65592,6.90822,9.90586C5.37975,11.460930000000001,5.40693,14.288,6.95404,15.8619C8.84598,17.7867,12.03496,17.5626,14.09,15.4717Z stroke-opacity=0 stroke=none>');
 const Ul = () => Ql();
-var Yl = /* @__PURE__ */ y('<svg class=icon-overlay viewBox="0 0 22 22"><path d=M4,17.0854L4,3.5C4,3.223858,4.22386,3,4.5,3C4.77614,3,5,3.223858,5,3.5L5,10L7.57584,10L9.8127,4.46359C9.91614,4.20756,10.20756,4.08386,10.46359,4.1873000000000005C10.71963,4.29075,10.84333,4.58216,10.73988,4.8382000000000005L8.65438,10L11.08535,10C11.29127,9.4174,11.84689,9,12.5,9C12.65154,9,12.79784,9.02247,12.93573,9.06427L16.6464,5.35355C16.8417,5.15829,17.1583,5.15829,17.3536,5.35355C17.5488,5.54882,17.5488,5.8654,17.3536,6.06066L13.7475,9.66675C13.907,9.90508,14,10.19168,14,10.5C14,11.15311,13.5826,11.70873,13,11.91465L13,14.3638L18.3714,12.1936C18.6274,12.09015,18.918799999999997,12.21385,19.0222,12.46989C19.1257,12.72592,19.002,13.0173,18.746000000000002,13.1208L13,15.4423L13,18L19.5,18C19.7761,18,20,18.2239,20,18.5C20,18.7761,19.7761,19,19.5,19L5.91465,19C5.70873,19.5826,5.15311,20,4.5,20C3.671573,20,3,19.3284,3,18.5C3,17.846899999999998,3.417404,17.2913,4,17.0854ZM6.3729499999999994,17.0413L12,14.7678L12,11.91465C11.88136,11.87271,11.76956,11.81627,11.66675,11.74746L6.3729499999999994,17.0413ZM12,15.8463L6.6694700000000005,18L12,18L12,15.8463ZM6.38629,15.6137L8.250350000000001,11L11,11L6.38629,15.6137ZM5,11L7.17182,11L5,16.3754L5,11Z stroke-opacity=0 fill-rule=evenodd fill-opacity=1>');
-const zl = () => Yl();
+var zl = /* @__PURE__ */ y('<svg class=icon-overlay viewBox="0 0 22 22"><path d=M4,17.0854L4,3.5C4,3.223858,4.22386,3,4.5,3C4.77614,3,5,3.223858,5,3.5L5,10L7.57584,10L9.8127,4.46359C9.91614,4.20756,10.20756,4.08386,10.46359,4.1873000000000005C10.71963,4.29075,10.84333,4.58216,10.73988,4.8382000000000005L8.65438,10L11.08535,10C11.29127,9.4174,11.84689,9,12.5,9C12.65154,9,12.79784,9.02247,12.93573,9.06427L16.6464,5.35355C16.8417,5.15829,17.1583,5.15829,17.3536,5.35355C17.5488,5.54882,17.5488,5.8654,17.3536,6.06066L13.7475,9.66675C13.907,9.90508,14,10.19168,14,10.5C14,11.15311,13.5826,11.70873,13,11.91465L13,14.3638L18.3714,12.1936C18.6274,12.09015,18.918799999999997,12.21385,19.0222,12.46989C19.1257,12.72592,19.002,13.0173,18.746000000000002,13.1208L13,15.4423L13,18L19.5,18C19.7761,18,20,18.2239,20,18.5C20,18.7761,19.7761,19,19.5,19L5.91465,19C5.70873,19.5826,5.15311,20,4.5,20C3.671573,20,3,19.3284,3,18.5C3,17.846899999999998,3.417404,17.2913,4,17.0854ZM6.3729499999999994,17.0413L12,14.7678L12,11.91465C11.88136,11.87271,11.76956,11.81627,11.66675,11.74746L6.3729499999999994,17.0413ZM12,15.8463L6.6694700000000005,18L12,18L12,15.8463ZM6.38629,15.6137L8.250350000000001,11L11,11L6.38629,15.6137ZM5,11L7.17182,11L5,16.3754L5,11Z stroke-opacity=0 fill-rule=evenodd fill-opacity=1>');
+const Yl = () => zl();
 var Vl = /* @__PURE__ */ y('<svg class=icon-overlay viewBox="0 0 22 22"><path d=M17,4.5C17,5.32843,16.328400000000002,6,15.5,6C15.0931,6,14.7241,5.83802,14.4539,5.57503L5.98992,8.32515C5.99658,8.38251,6,8.440850000000001,6,8.5C6,9.15311,5.582599999999999,9.70873,5,9.91465L5,11.08535C5.42621,11.236,5.763999999999999,11.57379,5.91465,12L19.5,12C19.7761,12,20,12.22386,20,12.5C20,12.77614,19.7761,13,19.5,13L5.91465,13C5.70873,13.5826,5.15311,14,4.5,14C3.671573,14,3,13.3284,3,12.5C3,11.84689,3.417404,11.29127,4,11.08535L4,9.91465C3.417404,9.70873,3,9.15311,3,8.5C3,7.67157,3.671573,7,4.5,7C4.90411,7,5.2709,7.15981,5.5406200000000005,7.41967L14.0093,4.66802C14.0032,4.6128599999999995,14,4.5568,14,4.5C14,3.671573,14.6716,3,15.5,3C16.328400000000002,3,17,3.671573,17,4.5ZM4,15.5C4,15.2239,4.22386,15,4.5,15L19.5,15C19.7761,15,20,15.2239,20,15.5C20,15.7761,19.7761,16,19.5,16L4.5,16C4.22386,16,4,15.7761,4,15.5ZM4,18.5C4,18.2239,4.22386,18,4.5,18L19.5,18C19.7761,18,20,18.2239,20,18.5C20,18.7761,19.7761,19,19.5,19L4.5,19C4.22386,19,4,18.7761,4,18.5Z stroke-opacity=0 stroke=none>');
 const Hl = () => Vl();
 var Gl = /* @__PURE__ */ y('<svg class=icon-overlay viewBox="0 0 22 22"><path d=M20,3.5C20,4.15311,19.5826,4.70873,19,4.91465L19,18.5C19,18.7761,18.7761,19,18.5,19L4.91465,19C4.70873,19.5826,4.15311,20,3.5,20C2.671573,20,2,19.3284,2,18.5C2,17.846899999999998,2.417404,17.2913,3,17.0854L3,3.5C3,3.22386,3.22386,3,3.5,3L17.0854,3C17.2913,2.417404,17.846899999999998,2,18.5,2C19.3284,2,20,2.671573,20,3.5ZM17.0854,4C17.236,4.42621,17.5738,4.763999999999999,18,4.91465L18,8L14,8L14,4L17.0854,4ZM13,4L13,8L9,8L9,4L13,4ZM13,9L9,9L9,13L13,13L13,9ZM13,14L9,14L9,18L13,18L13,14ZM14,18L14,14L18,14L18,18L14,18ZM18,13L14,13L14,9L18,9L18,13ZM4.91465,18C4.763999999999999,17.5738,4.42621,17.236,4,17.0854L4,14L8,14L8,18L4.91465,18ZM4,8L4,4L8,4L8,8L4,8ZM8,9L8,13L4,13L4,9L8,9Z stroke-opacity=0 fill-rule=evenodd fill-opacity=1>');
@@ -2626,12 +2626,12 @@ const mc = () => gc();
 var hc = /* @__PURE__ */ y('<svg viewBox="0 0 22 22"><path d=M4.727219638671875,8.007996215820313L9.973849638671876,2.7629472158203123C10.167279638671875,2.5696791158203123,10.480729638671875,2.5696791158203123,10.674169638671875,2.7629472158203123L13.223329638671874,5.311756215820313C13.416929638671874,5.505236215820313,13.416929638671874,5.8189862158203125,13.223329638671874,6.012466215820313L7.977129638671875,11.257906215820313C7.379859638671875,11.855176215820313,7.407609638671875,12.909396215820312,8.033809638671876,13.535596215820313C8.660409638671876,14.162596215820313,9.713849638671874,14.189996215820312,10.311129638671876,13.591896215820313L15.556929638671875,8.346066215820311C15.750429638671875,8.152526215820313,16.064229638671875,8.152526215820313,16.257629638671872,8.346066215820311L18.806529638671876,10.895266215820312C19.000029638671876,11.088746215820313,19.000029638671876,11.402496215820312,18.806529638671876,11.595976215820313L13.560629638671875,16.841796215820313C11.165619638671876,19.237196215820312,7.197149638671875,19.19919621582031,4.783499638671875,16.785496215820313C2.3698426386718747,14.371896215820312,2.331397638671875,10.403416215820313,4.727219638671875,8.007996215820313ZM12.172299638671875,5.662106215820312L10.323809638671875,3.8136162158203124L5.4287196386718755,8.709096215820313C3.422893638671875,10.714536215820312,3.4549956386718748,14.055196215820313,5.484999638671875,16.08479621582031C7.514609638671875,18.114796215820313,10.855289638671875,18.146496215820314,12.860719638671876,16.141096215820312L15.465629638671874,13.535796215820312L14.090929638671875,12.160756215820312L14.791629638671875,11.460436215820312L16.166229638671876,12.834996215820313L17.755829638671877,11.245226215820313L15.907729638671874,9.396736215820312L11.011839638671875,14.292596215820312C10.042809638671875,15.262396215820312,8.418249638671874,15.243796215820312,7.406019638671875,14.306496215820312L7.333099638671875,14.236296215820312C6.327599638671876,13.230796215820313,6.284009638671876,11.550396215820312,7.276419638671875,10.557586215820312L9.882199638671874,7.952026215820313L8.501079638671875,6.570906215820313L9.201789638671876,5.870186215820313L10.582939638671874,7.251336215820312L12.172299638671875,5.662106215820312Z stroke-opacity=0 fill-rule=evenodd fill-opacity=1>');
 const dc = (e) => (() => {
   var t = hc();
-  return Y(t, "class", `icon-overlay ${e ?? ""}`), t;
+  return z(t, "class", `icon-overlay ${e ?? ""}`), t;
 })();
 var vc = /* @__PURE__ */ y('<svg viewBox="0 0 22 22"><defs><clipPath id=master_svg0_151_615><rect x=0 y=0 width=22 height=22 rx=0></rect></clipPath></defs><g clip-path=url(#master_svg0_151_615)><path d=M19.672,3.0673368C19.4417,2.9354008,19.1463,3.00292252,18.9994,3.2210900000000002L17.4588,5.50622L16.743299999999998,3.781253L13.9915,7.4662L13.9618,7.51108C13.8339,7.72862,13.8936,8.005659999999999,14.1004,8.15391L14.1462,8.183430000000001C14.3683,8.308720000000001,14.6511,8.25001,14.8022,8.047229999999999L16.4907,5.78571L17.246299999999998,7.60713L19.8374,3.7635389999999997L19.8651,3.717088C19.9871,3.484615,19.9023,3.199273,19.672,3.0673368ZM4.79974,8.462530000000001L10.117740000000001,3.252975C10.31381,3.0610145,10.63152,3.0610145,10.82759,3.252975L13.4115,5.78453C13.6076,5.976710000000001,13.6076,6.28833,13.4115,6.4805L8.093869999999999,11.69045C7.48847,12.28368,7.51659,13.3308,8.151309999999999,13.9528C8.786439999999999,14.5755,9.85421,14.6027,10.45961,14.0087L15.7768,8.79831C15.9729,8.60609,16.2909,8.60609,16.487099999999998,8.79831L19.0705,11.33026C19.2667,11.52244,19.2667,11.83406,19.0705,12.02623L13.7533,17.2366C11.32572,19.6158,7.30328,19.578,4.85679,17.1807C2.410298,14.7834,2.371331,10.84174,4.79974,8.462530000000001ZM12.3461,6.1325199999999995L10.47246,4.29654L5.51079,9.15889C3.477674,11.15076,3.510214,14.4688,5.56784,16.4847C7.62506,18.500999999999998,11.01117,18.5325,13.0439,16.540599999999998L15.6842,13.9529L14.2908,12.58718L15.0011,11.89161L16.394399999999997,13.2569L18.0056,11.67786L16.1323,9.84188L11.16985,14.7046C10.18764,15.6679,8.540980000000001,15.6494,7.51498,14.7184L7.44107,14.6487C6.4219,13.65,6.37771,11.98096,7.38362,10.994869999999999L10.02485,8.40693L8.624939999999999,7.03516L9.335180000000001,6.33919L10.73512,7.71099L12.3461,6.1325199999999995Z stroke-opacity=0 fill-rule=evenodd fill-opacity=1>');
 const _c = (e) => (() => {
   var t = vc();
-  return Y(t, "class", `icon-overlay ${e ?? ""}`), t;
+  return z(t, "class", `icon-overlay ${e ?? ""}`), t;
 })();
 var Lc = /* @__PURE__ */ y('<svg class=icon-overlay viewBox="0 0 22 22"><path d=M11,17C5.80945,17,3.667717,12.85,3.113386,11.575C2.9622047,11.2,2.9622047,10.8,3.113386,10.425C3.667717,9.15,5.80945,5,11,5C16.165399999999998,5,18.3323,9.15,18.8866,10.425C19.0378,10.8,19.0378,11.2,18.8866,11.575C18.3323,12.85,16.165399999999998,17,11,17ZM4.04567,10.8C3.995276,10.925,3.995276,11.05,4.04567,11.175C4.52441,12.325,6.43937,16,11,16C15.5606,16,17.4756,12.325,17.9543,11.2C18.0047,11.075,18.0047,10.95,17.9543,10.825C17.4756,9.675,15.5606,6,11,6C6.43937,6,4.52441,9.675,4.04567,10.8ZM11,13.5C9.61417,13.5,8.480319999999999,12.375,8.480319999999999,11C8.480319999999999,9.625,9.61417,8.5,11,8.5C12.38583,8.5,13.5197,9.625,13.5197,11C13.5197,12.375,12.38583,13.5,11,13.5ZM11,9.5C10.1685,9.5,9.48819,10.175,9.48819,11C9.48819,11.825,10.1685,12.5,11,12.5C11.8315,12.5,12.51181,11.825,12.51181,11C12.51181,10.175,11.8315,9.5,11,9.5Z stroke-opacity=0 fill-opacity=1>');
 const $c = () => Lc();
@@ -2660,7 +2660,7 @@ const Tc = () => Ac(), Ic = {
   fibonacciSegment: jl,
   fibonacciCircle: Rl,
   fibonacciSpiral: Ul,
-  fibonacciSpeedResistanceFan: zl,
+  fibonacciSpeedResistanceFan: Yl,
   fibonacciExtension: Hl,
   gannBox: Wl,
   circle: ql,
@@ -2740,7 +2740,7 @@ function Bc(e) {
 const U = (e) => Ic[e.name](e.class);
 var Nc = /* @__PURE__ */ y('<div class=klinecharts-pro-drawing-bar><span class=split-line></span><div class=item tabindex=0><span style=width:32px;height:32px></span><div class=icon-arrow><svg viewBox="0 0 4 6"><path d=M1.07298,0.159458C0.827521,-0.0531526,0.429553,-0.0531526,0.184094,0.159458C-0.0613648,0.372068,-0.0613648,0.716778,0.184094,0.929388L2.61275,3.03303L0.260362,5.07061C0.0149035,5.28322,0.0149035,5.62793,0.260362,5.84054C0.505822,6.05315,0.903789,6.05315,1.14925,5.84054L3.81591,3.53075C4.01812,3.3556,4.05374,3.0908,3.92279,2.88406C3.93219,2.73496,3.87113,2.58315,3.73964,2.46925L1.07298,0.159458Z stroke=none stroke-opacity=0></path></svg></div></div><div class=item><span style=width:32px;height:32px></span></div><div class=item><span style=width:32px;height:32px></span></div><span class=split-line></span><div class=item><span style=width:32px;height:32px>'), Kc = /* @__PURE__ */ y('<div class=item tabindex=0><span style=width:32px;height:32px></span><div class=icon-arrow><svg viewBox="0 0 4 6"><path d=M1.07298,0.159458C0.827521,-0.0531526,0.429553,-0.0531526,0.184094,0.159458C-0.0613648,0.372068,-0.0613648,0.716778,0.184094,0.929388L2.61275,3.03303L0.260362,5.07061C0.0149035,5.28322,0.0149035,5.62793,0.260362,5.84054C0.505822,6.05315,0.903789,6.05315,1.14925,5.84054L3.81591,3.53075C4.01812,3.3556,4.05374,3.0908,3.92279,2.88406C3.93219,2.73496,3.87113,2.58315,3.73964,2.46925L1.07298,0.159458Z stroke=none stroke-opacity=0>'), p9 = /* @__PURE__ */ y("<li><span style=padding-left:8px>");
 const g9 = "drawing_tools", jc = (e) => {
-  const [t, n] = x("horizontalStraightLine"), [r, a] = x("priceChannelLine"), [s, o] = x("circle"), [i, l] = x("fibonacciLine"), [C, f] = x("xabcd"), [c, _] = x("weak_magnet"), [L, A] = x("normal"), [O, E] = x(!1), [T, b] = x(!0), [$, M] = x(""), z = J(() => [{
+  const [t, n] = x("horizontalStraightLine"), [r, a] = x("priceChannelLine"), [s, o] = x("circle"), [i, l] = x("fibonacciLine"), [C, f] = x("xabcd"), [c, _] = x("weak_magnet"), [L, A] = x("normal"), [O, E] = x(!1), [T, b] = x(!0), [$, M] = x(""), Y = J(() => [{
     key: "singleLine",
     icon: t(),
     list: Pc(e.locale),
@@ -2768,7 +2768,7 @@ const g9 = "drawing_tools", jc = (e) => {
   }]), s1 = J(() => Bc(e.locale));
   return (() => {
     var L1 = Nc(), I1 = L1.firstChild, t1 = I1.nextSibling, o1 = t1.firstChild, n1 = o1.nextSibling, r0 = n1.firstChild, P1 = t1.nextSibling, $1 = P1.firstChild, l1 = P1.nextSibling, b1 = l1.firstChild, D1 = l1.nextSibling, x1 = D1.nextSibling, p = x1.firstChild;
-    return d(L1, () => z().map((u) => (() => {
+    return d(L1, () => Y().map((u) => (() => {
       var m = Kc(), h = m.firstChild, k = h.nextSibling, Q = k.firstChild;
       return m.addEventListener("blur", () => {
         M("");
@@ -2807,7 +2807,7 @@ const g9 = "drawing_tools", jc = (e) => {
             })());
           }
         });
-      })(), null), F(() => Y(Q, "class", u.key === $() ? "rotate" : "")), m;
+      })(), null), F(() => z(Q, "class", u.key === $() ? "rotate" : "")), m;
     })()), I1), t1.addEventListener("blur", () => {
       M("");
     }), o1.$$click = () => {
@@ -2869,7 +2869,7 @@ const g9 = "drawing_tools", jc = (e) => {
       e.onRemoveClick(g9);
     }, d(p, v(U, {
       name: "remove"
-    })), F(() => Y(r0, "class", $() === "mode" ? "rotate" : "")), L1;
+    })), F(() => z(r0, "class", $() === "mode" ? "rotate" : "")), L1;
   })();
 };
 X(["click"]);
@@ -3067,8 +3067,8 @@ const Uc = (e) => {
     }
   });
 };
-var Yc = /* @__PURE__ */ y("<img style=width:500px;margin-top:20px>");
-const zc = (e) => v(n0, {
+var zc = /* @__PURE__ */ y("<img style=width:500px;margin-top:20px>");
+const Yc = (e) => v(n0, {
   get title() {
     return g("screenshot", e.locale);
   },
@@ -3087,8 +3087,8 @@ const zc = (e) => v(n0, {
     return e.onClose;
   },
   get children() {
-    var t = Yc();
-    return F(() => Y(t, "src", e.url)), t;
+    var t = zc();
+    return F(() => z(t, "src", e.url)), t;
   }
 }), Vc = {
   AO: [
@@ -3289,7 +3289,7 @@ function N1(e, t, n, r) {
 }
 const Jc = (e) => {
   let t, n = null, r, a = !1;
-  const [s, o] = x(e.theme), [i, l] = x(e.styles), [C, f] = x(e.locale), [c, _] = x(e.symbol), [L, A] = x(e.period), [O, E] = x(!1), [T, b] = x([...e.mainIndicators]), [$, M] = x({}), [z, s1] = x(!1), [L1, I1] = x(), [t1, o1] = x(""), [n1, r0] = x(e.drawingBarVisible), [P1, $1] = x(!1), [l1, b1] = x({
+  const [s, o] = x(e.theme), [i, l] = x(e.styles), [C, f] = x(e.locale), [c, _] = x(e.symbol), [L, A] = x(e.period), [O, E] = x(!1), [T, b] = x([...e.mainIndicators]), [$, M] = x({}), [Y, s1] = x(!1), [L1, I1] = x(), [t1, o1] = x(""), [n1, r0] = x(e.drawingBarVisible), [P1, $1] = x(!1), [l1, b1] = x({
     visible: !1,
     indicatorName: "",
     paneId: "",
@@ -3305,7 +3305,8 @@ const Jc = (e) => {
     setSymbol: _,
     getSymbol: () => c(),
     setPeriod: A,
-    getPeriod: () => L()
+    getPeriod: () => L(),
+    resize: () => n == null ? void 0 : n.resize()
   });
   const D1 = () => {
     n == null || n.resize();
@@ -3590,7 +3591,7 @@ const Jc = (e) => {
     }
   }), v(Z, {
     get when() {
-      return z();
+      return Y();
     },
     get children() {
       return v(Uc, {
@@ -3620,7 +3621,7 @@ const Jc = (e) => {
       return t1().length > 0;
     },
     get children() {
-      return v(zc, {
+      return v(Yc, {
         get locale() {
           return e.locale;
         },
@@ -3741,7 +3742,7 @@ const Jc = (e) => {
       }
     }), u);
     var m = t;
-    return typeof m == "function" ? L0(m, u) : t = u, F(() => Y(u, "data-drawing-bar-visible", n1())), p;
+    return typeof m == "function" ? L0(m, u) : t = u, F(() => z(u, "data-drawing-bar-visible", n1())), p;
   })()];
 };
 var eu = /* @__PURE__ */ y('<svg class=logo viewBox="0 0 80 92"><path d=M28.148808359375,51.7280513671875L22.963588359375,51.7280513671875C21.572648359375002,51.7280513671875,20.445068359375,52.6220613671875,20.445068359375,53.7248813671875L20.445068359375,72.3979013671875C20.445068359375,73.5007013671875,21.572648359375002,74.39470136718751,22.963588359375,74.39470136718751L33.926568359375,74.39470136718751C35.317468359375,74.39470136718751,36.445068359375,73.5007013671875,36.445068359375,72.3979013671875L36.445068359375,53.7248813671875C36.445068359375,52.6220613671875,35.317468359375,51.7280513671875,33.926568359375,51.7280513671875L28.741398359374998,51.7280513671875L28.741398359374998,46.2963223671875C28.741398359374998,46.1665793671875,28.608748359375,46.0614013671875,28.445108359375,46.0614013671875C28.281468359375,46.0614013671875,28.148808359375,46.1665793671875,28.148808359375,46.2963223671875L28.148808359375,51.7280513671875ZM28.741398359374998,74.3948013671875L28.741398359374998,79.82650136718749C28.741398359374998,79.9563013671875,28.608748359375,80.0614013671875,28.445108359375,80.0614013671875C28.281468359375,80.0614013671875,28.148808359375,79.9563013671875,28.148808359375,79.82650136718749L28.148808359375,74.3948013671875L28.741398359374998,74.3948013671875Z></path><path d=M51.148808359374996,44.7280513671875L45.963588359375,44.7280513671875C44.572648359375,44.7280513671875,43.445068359375,45.6220613671875,43.445068359375,46.7248813671875L43.445068359375,65.3979013671875C43.445068359375,66.5007013671875,44.572648359375,67.39470136718751,45.963588359375,67.39470136718751L56.926568359375,67.39470136718751C58.317468359375,67.39470136718751,59.445068359375,66.5007013671875,59.445068359375,65.3979013671875L59.445068359375,46.7248813671875C59.445068359375,45.6220613671875,58.317468359375,44.7280513671875,56.926568359375,44.7280513671875L51.741398359375,44.7280513671875L51.741398359375,39.2963223671875C51.741398359375,39.1665793671875,51.608748359375,39.0614013671875,51.445108359375,39.0614013671875C51.281468359375,39.0614013671875,51.148808359374996,39.1665793671875,51.148808359374996,39.2963223671875L51.148808359374996,44.7280513671875ZM51.741398359375,67.3948013671875L51.741398359375,72.82650136718749C51.741398359375,72.9563013671875,51.608748359375,73.0614013671875,51.445108359375,73.0614013671875C51.281468359375,73.0614013671875,51.148808359374996,72.9563013671875,51.148808359374996,72.82650136718749L51.148808359374996,67.3948013671875L51.741398359375,67.3948013671875Z></path><path d=M17.7274,90.6541C17.5901,90.6541,17.4517,90.6436,17.3121,90.6225C9.93219,89.5095,4.80718,86.7136,2.07787,82.3084C-1.1223,77.1437,0.241766,71.6314,0.56829,70.5137C5.37624,46.647,15.0785,38.4945,21.5025,33.0957C22.9683,31.8633,24.2342,30.7995,25.1676,29.7672C25.4105,29.4984,25.6051,29.2154,25.7556,28.9202C24.7465,29.2231,24.1971,29.4326,24.1703,29.4429C22.908,29.9368,21.4777,29.3247,20.9761,28.076C20.4756,26.8272,21.0897,25.4146,22.352,24.9172C22.5042,24.8571,23.5312,24.4607,25.3073,23.9616C24.087,21.4425,21.7693,18.7949,19.7125,16.6431L19.2819,16.1902C16.2438,12.9776,14.6017,4.80159,14.3036,3.19471C14.1306,2.26212,14.4636,1.30796,15.1814,0.679657C15.8995,0.0512175,16.8976,-0.159672,17.8125,0.123747C22.7731,1.66274,24.2638,1.81255,27.2321,2.11098C28.7357,2.26195,29.83,3.59029,29.6762,5.07662C29.5236,6.56295,28.182,7.64786,26.6784,7.49454C24.4992,7.27569,22.9517,7.09896,20.724,6.56646C21.4493,9.09088,22.3803,11.5427,23.2771,12.4919L23.6876,12.9237C25.3757,14.69,28.9691,18.45,30.7016,22.7299C35.0392,21.9433,40.8791,21.3359,47.7817,21.7249C48.2004,20.7386,48.8054,19.7953,49.5907,18.9135C49.7137,18.7754,49.8498,18.6502,49.9988,18.539C53.6142,15.8508,57.5491,12.857,59.7803,11.0758C58.1028,11.2502,56.1034,11.0278,53.9124,9.70882C53.2439,9.30622,52.5992,8.89427,51.9662,8.48933C48.4668,6.25164,46.497,5.12109,43.4234,5.94853C41.9647,6.34058,40.4622,5.48975,40.0659,4.04789C39.6695,2.60604,40.5296,1.11853,41.9871,0.726471C47.5602,-0.773825,51.4796,1.73271,54.9364,3.9434L54.9364,3.9434C55.5284,4.32176,56.1318,4.70797,56.7564,5.08482C58.3843,6.06556,59.4858,5.76127,61.2899,5.13865C62.3511,4.77234,63.5567,4.35687,64.8675,4.53476C66.3321,4.73254,67.4406,5.56933,67.9103,6.83096C68.7444,9.07333,67.1035,11.5533,65.5797,13.2374C64.6729,14.2394,60.0845,17.7606,56.4519,20.4957C56.9477,20.3369,57.4767,20.2511,58.026,20.2511C59.4281,20.2511,60.6982,20.8102,61.621,21.7153C65.4948,20.6901,67.87,17.9563,67.9033,17.9175C68.78,16.8888,70.3322,16.7577,71.3721,17.6226C72.412,18.4886,72.5457,20.0253,71.6702,21.054C71.5221,21.2286,69.5063,23.5492,66.0787,25.233C69.5399,26.8822,72.9993,29.682,74.1841,34.4145C74.5106,35.7206,73.7062,37.0407,72.3859,37.3638C72.1871,37.4117,71.9884,37.4351,71.792,37.4351C70.687,37.4351,69.6826,36.6932,69.4046,35.5848C68.4378,31.7217,64.8144,29.7431,61.7619,28.7456C60.8298,29.7349,59.5009,30.3535,58.026,30.3535C55.8642,30.3535,54.0162,29.0245,53.2713,27.1474C53.2022,27.138,53.1331,27.1287,53.0642,27.1195C54.232,29.5936,57.0851,31.9259,58.1868,32.665C58.3157,32.7516,58.4423,32.8523,58.5547,32.9599C66.5865,40.6151,72.4887,48.8133,76.0971,57.3287C76.6815,58.7074,76.0249,60.2932,74.6313,60.8702C74.2976,61.01,73.9388,61.082,73.576,61.082C72.5065,61.082,71.4914,60.4582,71.0525,59.4213C67.7577,51.6455,62.331,44.1074,54.9203,37.0116C53.6073,36.1009,48.0984,31.9917,47.2065,26.583C40.9421,26.2679,35.6187,26.8278,31.6725,27.5336C31.6197,29.527,30.9225,31.5172,29.2456,33.3731C28.0614,34.6827,26.5968,35.915,25.0446,37.2188C21.9414,39.8269,18.2648,42.9169,14.8104,48.1192C11.356,53.3215,8.12389,60.6361,5.9098,71.6934C5.88732,71.8035,5.85893,71.9123,5.82344,72.0188C5.81634,72.041,4.57886,76.0413,6.77344,79.5289C8.6332,82.4828,12.4557,84.4139,18.1367,85.2705C19.6297,85.4953,20.6566,86.8762,20.4295,88.3532C20.2213,89.6944,19.0559,90.6541,17.7274,90.6541ZM35.1195,7.03101C33.3502,7.03101,31.9158,5.61208,31.9158,3.86173C31.9158,2.11139,33.3502,0.69245,35.1195,0.69245C36.8889,0.69245,38.3233,2.11139,38.3233,3.86173C38.3233,5.61208,36.8889,7.03101,35.1195,7.03101ZM57.6848,23.1892L58.414,24.4754C58.8984,24.3623,59.3923,24.3435,59.8644,24.4203C60.2191,24.5005,60.5087,24.7182,60.6663,25.0229C60.8636,25.3394,60.8993,25.7346,60.7646,26.1094C60.5988,26.5176,60.2972,26.8749,59.9085,27.1235L60.31,27.8316L59.7886,28.1294L59.3994,27.443C58.9257,27.7175,58.399,27.883,57.8664,27.9247L57.3744,27.0569C57.6378,27.0741,57.9071,27.048,58.1704,26.9797C58.4501,26.9251,58.7239,26.8323,58.9829,26.7044L58.2801,25.4647C57.8047,25.5877,57.3167,25.6065,56.8549,25.5197C56.4913,25.4263,56.196,25.1971,56.0328,24.8814C55.8433,24.5561,55.8127,24.1572,55.9484,23.7789C56.088,23.373,56.3763,23.0149,56.7584,22.7726L56.4166,22.1699L56.938,21.8721L57.2727,22.4625C57.6615,22.2376,58.0888,22.0901,58.5254,22.0301L59.0042,22.8746C58.5548,22.8828,58.103,22.9906,57.6848,23.1892ZM56.9319,24.2961Q57.1278,24.6417,57.7863,24.5856L57.1695,23.4978Q56.6982,23.884,56.9319,24.2961ZM58.9077,25.3462L59.4981,26.3875L59.499,26.3891Q59.9965,26.0045,59.7628,25.5923Q59.573,25.2576,58.9077,25.3462ZM73.2212,66.5065C73.2212,68.2569,74.6555,69.6758,76.4249,69.6758C78.1943,69.6758,79.6286,68.2569,79.6286,66.5065C79.6286,64.7562,78.1943,63.3372,76.4249,63.3372C74.6555,63.3372,73.2212,64.7562,73.2212,66.5065ZM35.9465,91.8045C35.0734,91.8045,34.2038,91.7987,33.3378,91.7858C31.827,91.7636,30.6203,90.5359,30.6428,89.0402C30.6653,87.5457,31.9158,86.3297,33.4183,86.3742C49.6344,86.6059,65.7512,84.6175,67.6134,84.037C72.1953,82.4184,74.5295,79.3603,74.5295,74.9575C74.5295,73.463,75.754,72.2517,77.2648,72.2517C78.7755,72.2517,80,73.463,80,74.9575C80,81.5992,76.148,86.7686,69.4317,89.142C67.0041,89.9999,51.0955,91.8046,35.9465,91.8045ZM25.2731,92C23.5037,92,22.0693,90.5811,22.0693,88.8307C22.0693,87.0804,23.5037,85.6615,25.2731,85.6615C27.0424,85.6615,28.4768,87.0804,28.4768,88.8307C28.4768,90.5811,27.0424,92,25.2731,92Z>');
@@ -3866,6 +3867,9 @@ class su {
   }
   getPeriod() {
     return this._chartApi.getPeriod();
+  }
+  resize() {
+    this._chartApi.resize();
   }
 }
 w5.forEach((e) => {
