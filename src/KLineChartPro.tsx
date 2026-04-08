@@ -119,4 +119,8 @@ export default class KLineChartPro implements ChartPro {
   getPeriod (): Period {
     return this._chartApi!.getPeriod()
   }
+
+  resize (): void {
+	this._chartApi!.resize()
+  }
 }

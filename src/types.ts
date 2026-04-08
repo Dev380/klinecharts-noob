@@ -67,4 +67,5 @@ export interface ChartPro {
   getSymbol(): SymbolInfo
   setPeriod(period: Period): void
   getPeriod(): Period
+  resize(): void
 }

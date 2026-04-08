@@ -106,7 +106,8 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
     setSymbol,
     getSymbol: () => symbol(),
     setPeriod,
-    getPeriod: () => period()
+    getPeriod: () => period(),
+	resize: () => widget?.resize()
   })
 
   const documentResize = () => {
